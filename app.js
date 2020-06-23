@@ -47,12 +47,21 @@ function addTask(e) {
 
     e.preventDefault();
 }
-
+//Remove task
 function removeTask(e) {
     if (e.target.parentElement.classList.contains('delete-item')) {
         if (confirm('Are you sure?')) {
             e.target.parentElement.parentElement.remove();
 
         }
+    }
+}
+//Clear tasks
+function clearTasks(e) {
+    //taskList.innerHTML= '';
+
+    //Faster than inner thml
+    while (taskList.firstChild) {
+        taskList.removeChild(taskList.firstChild);
     }
 }
