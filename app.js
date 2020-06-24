@@ -133,6 +133,10 @@ function clearTasks(e) {
     //Clear from Local Storage
     clearTasksFromLocalStorage();
 }
+//Clear Tasks from Local Storage
+function clearTasksFromLocalStorage() {
+    localStorage.clear();
+}
 //Filter tasks
 function filterTasks(e) {
     const text = e.target.value.toLowerCase();
