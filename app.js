@@ -101,6 +101,8 @@ function removeTask(e) {
         if (confirm('Are you sure?')) {
             e.target.parentElement.parentElement.remove();
 
+            //Remove from local storage
+            removeTaskFromLocalStorage( e.target.parentElement.parentElement);
         }
     }
 }
