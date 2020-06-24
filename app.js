@@ -21,7 +21,36 @@ function loadEventListeners() {
     //Filter task event
     filter.addEventListener('keyup' , filterTasks);
 }
-
+//Get Tasks from local storage
+function getTasks(params) {
+    let tasks;
+    if (localStorage.getItem('tasks') === null) {
+        tasks = [];
+    } else {
+        tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+    tasks.forEach(function (task) {
+        
+    //Create li element
+    const li = document.createElement('li');
+    //Add class to li
+    li.className = 'collection-item';
+    //Create text node and append to li
+    li.appendChild(document.createTextNode(task));
+    // Create new link element (for delete icon)
+    const link = document.createElement('a');
+    //Add class to link
+    link.className = 'delete-item secondary-content';
+    //Add icon html
+    link.innerHTML = 
+    `<i class="fa fa-times" aria-hidden="true"></i>
+    `;
+    //Append the link to li
+    li.appendChild(link);
+    //Append li to ul
+    taskList.appendChild(li);
+    });
+}
 //Add task
 function addTask(e) {
     
